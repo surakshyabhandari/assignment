@@ -22,8 +22,8 @@ public class Product {
     private String name;
     private String description;
 
-    @Enumerated(EnumType.STRING)
-    private Status status;
+//    @Enumerated(EnumType.STRING)
+    private String status;
 
     private String imageurl;
 

@@ -1,5 +1,6 @@
 package com.example.assignment.dto.AddRequest;
 
+import com.example.assignment.dto.Response.OfferResponse;
 import com.example.assignment.entity.Offer;
 import com.example.assignment.entity.Status;
 import com.example.assignment.entity.Owner;
@@ -12,8 +13,8 @@ public class AddProductRequest {
 
     private String name;
     private String description;
-    private Status status;
+    private String status;
     private String imageurl;
     private Owner owner;
-    private List<Offer> offers;
+    private List<Long> offers;
 }
