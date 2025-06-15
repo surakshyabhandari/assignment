@@ -3,6 +3,7 @@ package com.example.assignment.dto.Response;
 import com.example.assignment.entity.Offer;
 import com.example.assignment.entity.Status;
 import com.example.assignment.entity.Owner;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 

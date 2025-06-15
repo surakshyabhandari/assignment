@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,8 +23,8 @@ public class Product {
     private String name;
     private String description;
 
-//    @Enumerated(EnumType.STRING)
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
     private String imageurl;
 
@@ -37,6 +38,6 @@ public class Product {
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "offer_id")
     )
-    private List<Offer> offers;
+    private List<Offer> offers= new ArrayList<>();
 
 }

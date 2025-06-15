@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -23,5 +24,10 @@ public class Offer {
     private String description;
 
     @ManyToMany(mappedBy = "offers")
-    private List<Product> products;
+    private List<Product> products = new ArrayList<>();
+
+    public void addProductToOffer(Product product){
+        this.products.add(product);
+    }
+
 }
