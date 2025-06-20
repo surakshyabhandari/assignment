@@ -1,13 +1,12 @@
 package com.example.assignment.controller;
 
 import com.example.assignment.dto.AddRequest.AddProductRequest;
-import com.example.assignment.dto.Message;
-import com.example.assignment.dto.Response.OfferResponse;
 import com.example.assignment.dto.Response.ProductResponse;
 import com.example.assignment.entity.Product;
 import com.example.assignment.entity.Status;
 import com.example.assignment.repository.ProductRepository;
 import com.example.assignment.service.ProductService;
+import com.example.assignment.service.impl.ImageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -22,16 +21,20 @@ public class ProductController {
 
     private final ProductService productService;
     private final ProductRepository productRepository;
+    private final ImageService imageService;
 
     @Autowired
-    public ProductController(ProductService productService, ProductRepository productRepository){
+    public ProductController(ProductService productService, ProductRepository productRepository, ImageService imageService){
         this.productService = productService;
         this.productRepository = productRepository;
+        this.imageService = imageService;
 
     }
 
     @PostMapping(value="/products")
-    public ProductResponse addProduct(@ModelAttribute AddProductRequest request){
+    public ProductResponse addProduct(@ModelAttribute AddProductRequest request, @RequestParam("file")MultipartFile file) throws Exception {
+        String url = imageService.uploadImage(file);
+        request.setImageurl(url);
         log.info("add product::{}",request);
         return productService.addProduct(request);
     }

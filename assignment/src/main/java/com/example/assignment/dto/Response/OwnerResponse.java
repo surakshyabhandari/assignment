@@ -17,5 +17,7 @@ public class OwnerResponse {
     private long id;
     private String name;
     private String email;
+    private String password;
+    private String role;
     private List<ProductResponse> productlist;
 }

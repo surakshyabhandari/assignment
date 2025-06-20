@@ -5,10 +5,14 @@ import com.example.assignment.entity.Offer;
 import com.example.assignment.entity.Status;
 import com.example.assignment.entity.Owner;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 @Data
+@Setter
+@Getter
 public class AddProductRequest {
 
     private String name;
